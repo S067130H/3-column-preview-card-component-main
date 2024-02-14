@@ -1,0 +1,100 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: hsl(0, 0%, 95%);
+  display: flex;
+  justify-content: center;
+}
+body main {
+  align-items: center;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  width: fit-content;
+}
+body main .container {
+  border-radius: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  overflow: hidden;
+}
+body main .container #sedan {
+  background-color: hsl(31, 77%, 52%);
+}
+body main .container #suv {
+  background-color: hsl(184, 100%, 22%);
+}
+body main .container #luxury {
+  background-color: hsl(179, 100%, 13%);
+}
+body main .container .card {
+  height: 500px;
+  padding: 48px;
+  position: relative;
+  width: 307px;
+}
+body main .container .card img {
+  height: 40px;
+  width: 64px;
+}
+body main .container .card .text h1 {
+  color: hsl(0, 0%, 95%);
+  font: 700 40px "Big Shoulders Display";
+  padding: 35px 0 25px;
+}
+body main .container .card .text p {
+  color: hsla(0, 0%, 100%, 0.75);
+  font: 400 15px "Lexend Deca";
+  line-height: 25px;
+}
+body main .container .card button {
+  background-color: hsl(0, 0%, 95%);
+  border: none;
+  border-radius: 25px;
+  bottom: 48px;
+  font: 400 15px "Lexend Deca";
+  height: 48px;
+  position: absolute;
+  transition: all 1s;
+  width: 146px;
+}
+body main .container .card button.sedan {
+  color: hsl(31, 77%, 52%);
+}
+body main .container .card button.suv {
+  color: hsl(184, 100%, 22%);
+}
+body main .container .card button.luxury {
+  color: hsl(179, 100%, 13%);
+}
+body main .container .card button:hover {
+  background-color: transparent;
+  border: 2px solid hsla(0, 0%, 100%, 0.75);
+  color: hsla(0, 0%, 100%, 0.75);
+}
+body .attribution {
+  font: 15px "Lexend Deca";
+  position: absolute;
+  bottom: 0;
+}
+
+@media screen and (max-width: 400px) {
+  body main {
+    height: fit-content;
+    margin: 88px 0;
+    width: min-content;
+  }
+  body main .container .card {
+    height: 442px;
+    width: 327px;
+  }
+  body .attribution {
+    display: none;
+  }
+}
+
+/*# sourceMappingURL=styles.css.map */
