@@ -1,0 +1,82 @@
+*
+    box-sizing: border-box
+    margin: 0
+    padding: 0
+
+body
+    background-color: hsl(0, 0%, 95%)
+    display: flex
+    justify-content: center
+    main
+        align-items: center
+        display: flex
+        height: 100vh
+        justify-content: center
+        width: fit-content
+        .container
+            border-radius: 8px
+            display: flex
+            flex-wrap: wrap
+            overflow: hidden
+            #sedan
+                background-color: hsl(31, 77%, 52%)
+            #suv
+                background-color: hsl(184, 100%, 22%)
+            #luxury
+                background-color: hsl(179, 100%, 13%)
+            .card
+                height: 500px
+                padding: 48px
+                position: relative
+                width: 307px
+                img
+                    height: 40px
+                    width: 64px
+                .text
+                    h1
+                        color: hsl(0, 0%, 95%)
+                        font: 700 40px "Big Shoulders Display"
+                        padding: 35px 0 25px
+                    p
+                        color: hsla(0, 0%, 100%, 0.75)
+                        font: 400 15px "Lexend Deca"
+                        line-height: 25px
+                button
+                    background-color: hsl(0, 0%, 95%)
+                    border: none
+                    border-radius: 25px
+                    bottom: 48px
+                    font: 400 15px "Lexend Deca"
+                    height: 48px
+                    position: absolute
+                    transition: all 1s
+                    width: 146px
+                    &.sedan
+                        color: hsl(31, 77%, 52%)
+                    &.suv
+                        color: hsl(184, 100%, 22%)
+                    &.luxury
+                        color: hsl(179, 100%, 13%)
+                    &:hover
+                        background-color: transparent
+                        border: 2px solid hsla(0, 0%, 100%, 0.75)
+                        color: hsla(0, 0%, 100%, 0.75)
+                        cursor: pointer
+    .attribution
+        font: 15px "Lexend Deca"
+        position: absolute
+        bottom: 0
+
+@media screen and (max-width: 400px)
+    body    
+        main
+            height: fit-content
+            margin: 88px 0
+            width: min-content
+            .container
+                .card
+                    height: 442px
+                    width: 327px
+        .attribution
+            display: none
+
