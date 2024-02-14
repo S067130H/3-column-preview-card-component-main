@@ -1,92 +1,115 @@
-# Frontend Mentor - 3-column preview card component
+# Frontend Mentor - 3-column preview card component solution
 
-![Design preview for the 3-column preview card component coding challenge](./design/desktop-preview.jpg)
+This is a solution to the [3-column preview card component challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/3column-preview-card-component-pH92eAR2-). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
 
-## Welcome! 👋
+## Table of contents
 
-Thanks for checking out this front-end coding challenge.
+- [Overview](#overview)
+  - [The challenge](#the-challenge)
+  - [Screenshots](#screenshots)
+  - [Links](#links)
+- [My process](#my-process)
+  - [Built with](#built-with)
+  - [What I learned](#what-i-learned)
+  - [Continued development](#continued-development)
+  - [Useful resources](#useful-resources)
+- [Author](#author)
 
-[Frontend Mentor](https://www.frontendmentor.io) challenges help you improve your coding skills by building realistic projects.
+## Overview
 
-**To do this challenge, you need a basic understanding of HTML and CSS.**
+### The challenge
 
-## The challenge
-
-Your challenge is to build out this 3-column preview card component and get it looking as close to the design as possible.
-
-You can use any tools you like to help you complete the challenge. So if you've got something you'd like to practice, feel free to give it a go.
-
-Your users should be able to:
+Users should be able to:
 
 - View the optimal layout depending on their device's screen size
 - See hover states for interactive elements
 
-Want some support on the challenge? [Join our community](https://www.frontendmentor.io/community) and ask questions in the **#help** channel.
+### Screenshots
 
-## Where to find everything
+![](./screenshot1.png)
+![](./screenshot2.png)
 
-Your task is to build out the project to the designs inside the `/design` folder. You will find both a mobile and a desktop version of the design.
 
-The designs are in JPG static format. Using JPGs will mean that you'll need to use your best judgment for styles such as `font-size`, `padding` and `margin`.
+### Links
 
-If you would like the design files (we provide Sketch & Figma versions) to inspect the design in more detail, you can [subscribe as a PRO member](https://www.frontendmentor.io/pro).
+- Solution URL: [Add solution URL here](https://your-solution-url.com)
+- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
 
-You will find all the required assets in the `/images` folder. The assets are already optimized.
+## My process
 
-There is also a `style-guide.md` file containing the information you'll need, such as color palette and fonts.
+### Built with
 
-## Building your project
+- Semantic HTML5 markup
+- CSS custom properties
+- Flexbox
+- CSS media queries
 
-Feel free to use any workflow that you feel comfortable with. Below is a suggested process, but do not feel like you need to follow these steps:
+### What I learned
 
-1. Initialize your project as a public repository on [GitHub](https://github.com/). Creating a repo will make it easier to share your code with the community if you need help. If you're not sure how to do this, [have a read-through of this Try Git resource](https://try.github.io/).
-2. Configure your repository to publish your code to a web address. This will also be useful if you need some help during a challenge as you can share the URL for your project with your repo URL. There are a number of ways to do this, and we provide some recommendations below.
-3. Look through the designs to start planning out how you'll tackle the project. This step is crucial to help you think ahead for CSS classes to create reusable styles.
-4. Before adding any styles, structure your content with HTML. Writing your HTML first can help focus your attention on creating well-structured content.
-5. Write out the base styles for your project, including general content styles, such as `font-family` and `font-size`.
-6. Start adding styles to the top of the page and work down. Only move on to the next section once you're happy you've completed the area you're working on.
+I feel like I learned a lot this section and have a lot of things to reflect on. One thing I learned was how to pair relative and absolute positioning together. I have never particularly used absolute positioning for many things, so when it came to aligning the button with the bottom of the card, I learned the card had to be relatively positioned and the button inside it having an absolute position with a bottom property of 0.
 
-## Deploying your project
+```css
+.card {
+  height: 500px;
+  padding: 48px;
+  position: relative;
+  width: 307px;
+}
 
-As mentioned above, there are many ways to host your project for free. Our recommended hosts are:
+button {
+  background-color: hsl(0, 0%, 95%);
+  border: none;
+  border-radius: 25px;
+  bottom: 48px;
+  font: 400 15px "Lexend Deca";
+  height: 48px;
+  position: absolute;
+  transition: all 1s;
+  width: 146px;
+}
+```
+Another thing I learned was how to get the border radius of the container to function. At first, the border radius was not applying, but when I looked further, I realized that the border was appearing behind the cards. Thanks to [tole011's comment](https://forum.bricksbuilder.io/t/solved-container-border-radius-not-applied/165), I learned that I needed to hide the overflow of everything inside of the container.
 
-- [GitHub Pages](https://pages.github.com/)
-- [Vercel](https://vercel.com/)
-- [Netlify](https://www.netlify.com/)
+```css
+.container {
+  border-radius: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  overflow: hidden;
+}
+```
 
-You can host your site using one of these solutions or any of our other trusted providers. [Read more about our recommended and trusted hosts](https://medium.com/frontend-mentor/frontend-mentor-trusted-hosting-providers-bf000dfebe).
+### Continued development
 
-## Create a custom `README.md`
+Something I want to work on more is working with centering content with Flexbox. Despite getting the project to a finished state, I had many issues when trying to have a fully functioning product between mobile and desktop versions. For example, when inspecting in a mobile view, I noticed the container was causing my main tag to stretch beyond the actual content inside. This made positioning a hassle and had to implement media queries to readjust the width of the main section.
 
-We strongly recommend overwriting this `README.md` with a custom one. We've provided a template inside the [`README-template.md`](./README-template.md) file in this starter code.
+I would also like to re-evaluate on how I am using Sass. I have noticed the way I am writing it in an indented fashion has made my CSS file more complicated. for example, instead of:
 
-The template provides a guide for what to add. A custom `README` will help you explain your project and reflect on your learnings. Please feel free to edit our template as much as you like.
+```css
+.card {
+  [...]
+}
+```
+I end up with something that looks more like:
 
-Once you've added your information to the template, delete this file and rename the `README-template.md` file to `README.md`. That will make it show up as your repository's README file.
+```css
+body main .container .card {
+  [...]
+}
+```
+I'm assuming due to the specificity, it caused me to have a hard time writing my media query because I couldn't simply apply properties to .card, I had to write the whole extended path leading up to it. So I would like to fix this habit and work more towards cleaner code in the future.
 
-## Submitting your solution
+Another issue I had was when I used absolute positioning on the attribution section at the bottom of the page, it would appear right in the center and overlap on the mobile view. If anyone has any insight as to why that might be happening, I would really appriciate it!
 
-Submit your solution on the platform for the rest of the community to see. Follow our ["Complete guide to submitting solutions"](https://medium.com/frontend-mentor/a-complete-guide-to-submitting-solutions-on-frontend-mentor-ac6384162248) for tips on how to do this.
+---
 
-Remember, if you're looking for feedback on your solution, be sure to ask questions when submitting it. The more specific and detailed you are with your questions, the higher the chance you'll get valuable feedback from the community.
+As a side question, since I've been using Sass, my languages on my GitHub repo have only been showing HTML as 100% instead of my compiled CSS file along side it. If you know why that could be, I'd appriciate the info!
 
-## Sharing your solution
+### Useful resources
 
-There are multiple places you can share your solution:
+- [SOLVED: Container border-radius not applied](https://forum.bricksbuilder.io/t/solved-container-border-radius-not-applied/165) - This discussion helped me because I was unable to figure out exactly why my border radius was not applying to the container. Thanks tole011!
 
-1. Share your solution page in the **#finished-projects** channel of the [community](https://www.frontendmentor.io/community). 
-2. Tweet [@frontendmentor](https://twitter.com/frontendmentor) and mention **@frontendmentor**, including the repo and live URLs in the tweet. We'd love to take a look at what you've built and help share it around.
-3. Share your solution on other social channels like LinkedIn.
-4. Blog about your experience building your project. Writing about your workflow, technical choices, and talking through your code is a brilliant way to reinforce what you've learned. Great platforms to write on are [dev.to](https://dev.to/), [Hashnode](https://hashnode.com/), and [CodeNewbie](https://community.codenewbie.org/).
+## Author
 
-We provide templates to help you share your solution once you've submitted it on the platform. Please do edit them and include specific questions when you're looking for feedback.
+- Frontend Mentor - [@S067130H](https://www.frontendmentor.io/profile/S067130H)
 
-The more specific you are with your questions the more likely it is that another member of the community will give you feedback.
-
-## Got feedback for us?
-
-We love receiving feedback! We're always looking to improve our challenges and our platform. So if you have anything you'd like to mention, please email hi[at]frontendmentor[dot]io.
-
-This challenge is completely free. Please share it with anyone who will find it useful for practice.
-
-**Have fun building!** 🚀
